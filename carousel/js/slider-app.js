@@ -90,14 +90,15 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
 
 		// Return HTML for site areas
 		getSiteAreas: function(callback) {
-			var url = '/site-areas?format=json';
-			this.parseRSS(url, function(data){
-				var html =
-					'<div class="site-areas"><ul>'+ data.items.map(listItem).join('') +'</ul></div>';
-				callback(html);
-			});
+			// var url = '/site-areas?format=json';
+			// this.parseRSS(url, function(data){
+			// 	var html =
+			// 		'<div class="site-areas"><ul>'+ data.items.map(listItem).join('') +'</ul></div>';
+			// 	callback(html);
+			// });
 			function listItem(d) {
-				return '<li style="background-image: url(' + d.assetUrl + ');"><a class="overlay"><div class="title"><h2>' + d.title + '</h2></div></a></li>';
+				return '';
+				//return '<li style="background-image: url(' + d.assetUrl + ');"><a class="overlay"><div class="title"><h2>' + d.title + '</h2></div></a></li>';
 			}
 		},
 
@@ -775,4 +776,4 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
 		SamMoon.init();
 	});
 
-})();
+})();
