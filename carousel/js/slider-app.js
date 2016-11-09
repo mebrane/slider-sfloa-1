@@ -27,226 +27,226 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
 			'use strict';
 
 			// Initialize swatches
-			this.announcementBar();
+			// this.announcementBar();
 
 			// Home page resources
-			this.addResources();
+			// this.addResources();
 
 			// As seen on
 			// this.seenOn();
 
 			// Insert the shop and donate buttons
-			this.shopDonateButtons();
+			// this.shopDonateButtons();
 
 			// Move hero nav
-			this.moveHeroNav();
+			// this.moveHeroNav();
 
 			// Newsletter form
-			this.newsletterForm();
+			// this.newsletterForm();
 
 			// Convert collection to gallery
 			this.galleryBuilder();
 
 			// Move school links to 100% width section
-			this.moveSchoolLinks();
+			// this.moveSchoolLinks();
 
 			// The map
-			this.map();
+			// this.map();
 
 			// Blog category builder
-			this.getBlogCategoryPosts();
+			// this.getBlogCategoryPosts();
 
 			// Stuff to do on a blog post
-			this.blogPost();
+			// this.blogPost();
 
 			// Inject newsletter wherever it needs to be
-			this.newsletterForm();
+			// this.newsletterForm();
 
-			// Inject pages
-			this.injector();
+			// // Inject pages
+			// this.injector();
 
-			if (this.isEditMode()) {
-				$('body').addClass('edit-mode');
-			}
+			// if (this.isEditMode()) {
+			// 	$('body').addClass('edit-mode');
+			// }
 
 			// Return
 			return;
 
 		},
 
-		afterInjection: function() {
-			this.seenOn();
-		},
+		// afterInjection: function() {
+		// 	this.seenOn();
+		// },
 
-		// Return page content
-		SS_pageContent: function(html, options) {
-			var classes = options.class || '';
-			return '<div class="index-section-wrapper ' + classes + '"><div class="content page-content">' + html + '</div></div>';
-		},
+		// // Return page content
+		// SS_pageContent: function(html, options) {
+		// 	var classes = options.class || '';
+		// 	return '<div class="index-section-wrapper ' + classes + '"><div class="content page-content">' + html + '</div></div>';
+		// },
 
-		// Get the current page's URL
-		getPageJSON: function(callback) {
-			this.parseRSS(window.location.pathname + '?format=json', callback);
-		},
+		// // Get the current page's URL
+		// getPageJSON: function(callback) {
+		// 	this.parseRSS(window.location.pathname + '?format=json', callback);
+		// },
 
-		// Return HTML for site areas
-		getSiteAreas: function(callback) {
-			// var url = '/site-areas?format=json';
-			// this.parseRSS(url, function(data){
-			// 	var html =
-			// 		'<div class="site-areas"><ul>'+ data.items.map(listItem).join('') +'</ul></div>';
-			// 	callback(html);
-			// });
-			function listItem(d) {
-				return '';
-				//return '<li style="background-image: url(' + d.assetUrl + ');"><a class="overlay"><div class="title"><h2>' + d.title + '</h2></div></a></li>';
-			}
-		},
+		// // Return HTML for site areas
+		// getSiteAreas: function(callback) {
+		// 	// var url = '/site-areas?format=json';
+		// 	// this.parseRSS(url, function(data){
+		// 	// 	var html =
+		// 	// 		'<div class="site-areas"><ul>'+ data.items.map(listItem).join('') +'</ul></div>';
+		// 	// 	callback(html);
+		// 	// });
+		// 	function listItem(d) {
+		// 		return '';
+		// 		//return '<li style="background-image: url(' + d.assetUrl + ');"><a class="overlay"><div class="title"><h2>' + d.title + '</h2></div></a></li>';
+		// 	}
+		// },
 
-		injectFooter: function() {
-			var self = this;
-			this.getSiteAreas(function(html){
-				$('#preFooter')
-					.prepend(self.SS_pageContent('<h1>As Seen On...</h1><div class="as-seen-on">' + self.seenOn(true) + '</div>', {class: 'white'}))
-					.prepend(html);
-			});
-		},
+		// injectFooter: function() {
+		// 	var self = this;
+		// 	this.getSiteAreas(function(html){
+		// 		$('#preFooter')
+		// 			.prepend(self.SS_pageContent('<h1>As Seen On...</h1><div class="as-seen-on">' + self.seenOn(true) + '</div>', {class: 'white'}))
+		// 			.prepend(html);
+		// 	});
+		// },
 
-		blogPost: function() {
-			var self = this;
+		// blogPost: function() {
+		// 	var self = this;
 
-			// Make sure we are on a blog post first
-			if (!$('body').hasClass('collection-blog-main')) return;
+		// 	// Make sure we are on a blog post first
+		// 	if (!$('body').hasClass('collection-blog-main')) return;
 
-			// Get footer
-			var $footer = $('footer.entry-footer');
+		// 	// Get footer
+		// 	var $footer = $('footer.entry-footer');
 
-			//start();
+		// 	//start();
 
-			return;
+		// 	return;
 
-			function start() {
-				// Get author
-				self.getPageJSON(addAuthor);
-				self.injectFooter();
-			}
+		// 	function start() {
+		// 		// Get author
+		// 		self.getPageJSON(addAuthor);
+		// 		self.injectFooter();
+		// 	}
 
-			function addAuthor(data) {
-				if (!data.item) return;
-				if (!data.item.author) return;
+		// 	function addAuthor(data) {
+		// 		if (!data.item) return;
+		// 		if (!data.item.author) return;
 
-				var author = data.item.author;
+		// 		var author = data.item.author;
 
-				var html =
-					'<div class="author">' +
-						'<div class="avatar" style="background-image: url('+ author.avatarAssetUrl +');"></div>' +
-						'<div class="details"><a class="name">' + author.displayName + '</a><div class="bio">' + author.bio + '</div></div>' +
-					'</div>';
+		// 		var html =
+		// 			'<div class="author">' +
+		// 				'<div class="avatar" style="background-image: url('+ author.avatarAssetUrl +');"></div>' +
+		// 				'<div class="details"><a class="name">' + author.displayName + '</a><div class="bio">' + author.bio + '</div></div>' +
+		// 			'</div>';
 
-				// Append the Author's HTML thingy
-				$footer.append(html);
+		// 		// Append the Author's HTML thingy
+		// 		$footer.append(html);
 
-			}
-		},
+		// 	}
+		// },
 
-		// NOTE: This feature should only be used on pages, not collections
-		injector: function() {
-			// Don't do this in edit mode
-			if (this.isEditMode()) return;
+		// // NOTE: This feature should only be used on pages, not collections
+		// injector: function() {
+		// 	// Don't do this in edit mode
+		// 	if (this.isEditMode()) return;
 
-			var self = this;
+		// 	var self = this;
 
-		/*	//start();*/
+		// /*	//start();*/
 
-			return;
+		// 	return;
 
-			function start() {
+		// 	function start() {
 
-				// Inject site areas
-				self.getSiteAreas(function(html){
-					var $sections = $('.inject-sections');
-					if (!$sections.length) return;
-					$sections.html(html);
-					self.make100Width($sections);
-				});
+		// 		// Inject site areas
+		// 		self.getSiteAreas(function(html){
+		// 			var $sections = $('.inject-sections');
+		// 			if (!$sections.length) return;
+		// 			$sections.html(html);
+		// 			self.make100Width($sections);
+		// 		});
 
-				$('.inject-page').each(function(){
-					var $this = $(this);
-					var page = $this.attr('page');
-					var url = '/' + page + '?format=json';
-					var target = $this.attr('target');
-					self.parseRSS(url, function(data){
-						// Inject into target selector
-						if (target) {
-							$(target).append(data.mainContent || '');
-							return;
-						}
-						// Inject into element
-						$this.html(data.mainContent || '');
-						if ($this.hasClass('make-100')) {
-							self.make100Width($this);
-						}
-						self.processPage(page.toLowerCase());
-					});
-				});
-			}
-		},
+		// 		$('.inject-page').each(function(){
+		// 			var $this = $(this);
+		// 			var page = $this.attr('page');
+		// 			var url = '/' + page + '?format=json';
+		// 			var target = $this.attr('target');
+		// 			self.parseRSS(url, function(data){
+		// 				// Inject into target selector
+		// 				if (target) {
+		// 					$(target).append(data.mainContent || '');
+		// 					return;
+		// 				}
+		// 				// Inject into element
+		// 				$this.html(data.mainContent || '');
+		// 				if ($this.hasClass('make-100')) {
+		// 					self.make100Width($this);
+		// 				}
+		// 				self.processPage(page.toLowerCase());
+		// 			});
+		// 		});
+		// 	}
+		// },
 
-		// Post processing for pages
-		processPage: function(page) {
-			if (page == 'as-seen-on') {
-				this.seenOn();
-			}
-		},
+		// // Post processing for pages
+		// processPage: function(page) {
+		// 	if (page == 'as-seen-on') {
+		// 		this.seenOn();
+		// 	}
+		// },
 
-		// Make anything 100% width by removing the section wrapper
-		make100Width: function(selector, addClass) {
-			var $obj = $(selector);
-			addClass = addClass || '';
-			if (!$obj.length) return;
-			$(selector)
-				.closest('.index-section-wrapper')
-				.removeClass('index-section-wrapper')
-				.addClass('voidray-wrapper ' + addClass);
-		},
+		// // Make anything 100% width by removing the section wrapper
+		// make100Width: function(selector, addClass) {
+		// 	var $obj = $(selector);
+		// 	addClass = addClass || '';
+		// 	if (!$obj.length) return;
+		// 	$(selector)
+		// 		.closest('.index-section-wrapper')
+		// 		.removeClass('index-section-wrapper')
+		// 		.addClass('voidray-wrapper ' + addClass);
+		// },
 
-		getBlogCategoryPosts: function() {
-			var self = this;
+		// getBlogCategoryPosts: function() {
+		// 	var self = this;
 
-			// Make sure we are on the blog page
-			if (!$('body').hasClass('collection-blog')) return;
+		// 	// Make sure we are on the blog page
+		// 	if (!$('body').hasClass('collection-blog')) return;
 
-			// Start
-			// //start();
+		// 	// Start
+		// 	// //start();
 
-			return;
+		// 	return;
 
-			function start() {
+		// 	function start() {
 
-				// Add banner HTML
-				// $('.banner-thumbnail-wrapper').append('<div class="blog-title"><h2>Students for Life Blog</h2></div>');
+		// 		// Add banner HTML
+		// 		// $('.banner-thumbnail-wrapper').append('<div class="blog-title"><h2>Students for Life Blog</h2></div>');
 
-				self.make100Width('.blog-links');
-				$('.blog-links').each(function(){
-					var $link = $(this);
-					var href = $link.attr('link');
-					self.parseRSS(href + '&format=json', function(data){
-						getPosts(data, $link);
-					});
-				});
-			}
+		// 		self.make100Width('.blog-links');
+		// 		$('.blog-links').each(function(){
+		// 			var $link = $(this);
+		// 			var href = $link.attr('link');
+		// 			self.parseRSS(href + '&format=json', function(data){
+		// 				getPosts(data, $link);
+		// 			});
+		// 		});
+		// 	}
 
-			function getPosts(data, $link) {
-				if (!data.items) return;
-				$link.append('<ul>' + data.items.map(blogPost).join('') + '</ul>');
-			}
+		// 	function getPosts(data, $link) {
+		// 		if (!data.items) return;
+		// 		$link.append('<ul>' + data.items.map(blogPost).join('') + '</ul>');
+		// 	}
 
-			function blogPost(post) {
-				return '<li><a class="post-link" href="' + post.fullUrl + '">' + post.title + '<b>Read more +</b></a></li>';
-			}
-		},
+		// 	function blogPost(post) {
+		// 		return '<li><a class="post-link" href="' + post.fullUrl + '">' + post.title + '<b>Read more +</b></a></li>';
+		// 	}
+		// },
 
-		map: function() {
+		/*map: function() {
 
 			// Preload elements
 			var $map = $('.home-resources .locate .map');
@@ -295,23 +295,23 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
 				$profile.removeClass('active');
 			}
 		},
-
+*/
 		// Make school width 100%
-		moveSchoolLinks: function() {
-			this.make100Width('.school-links', 'school-wrapper');
-		},
+		// moveSchoolLinks: function() {
+		// 	this.make100Width('.school-links', 'school-wrapper');
+		// },
 
-		// Detect if we are in edit mode
-		isEditMode: function() {
-			return (window.location != window.parent.location) ? true : false;
-		},
+		// // Detect if we are in edit mode
+		// isEditMode: function() {
+		// 	return (window.location != window.parent.location) ? true : false;
+		// },
 
 		galleryBuilder: function() {
 
 			// Do not do anything in edit mode
-			if (this.isEditMode()) {
-				return;
-			}
+			// if (this.isEditMode()) {
+			// 	return;
+			// }
 
 			var options = {
 				insertAfter: ''
@@ -496,279 +496,279 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
 
 		},
 
-		newsletterForm: function() {
-			if (this.isEditMode()) return;
+		// newsletterForm: function() {
+		// 	if (this.isEditMode()) return;
 
-			var self = this;
-			var $form = $('.inject-newsletter');
+		// 	var self = this;
+		// 	var $form = $('.inject-newsletter');
 
-			////start();
+		// 	////start();
 
-			return;
+		// 	return;
 
-			function start() {
-				$form.html(self.getNewsletterForm());
-				$('input[type=submit]', $form).on('click', next);
-				self.make100Width($form);
-			}
+		// 	function start() {
+		// 		$form.html(self.getNewsletterForm());
+		// 		$('input[type=submit]', $form).on('click', next);
+		// 		self.make100Width($form);
+		// 	}
 
-			function next() {
-				var $button = $(this);
-				var $step = $button.closest('.step');
-				var $steps = $button.closest('.steps');
-				var $next = $step.next('.step');
-				if (!$next.length) return;
-				$step.addClass('slide-out');
-				setTimeout(function(){
-					$step.removeClass('active');
-					$next.addClass('active');
-				}, 250);
-			}
-		},
+		// 	function next() {
+		// 		var $button = $(this);
+		// 		var $step = $button.closest('.step');
+		// 		var $steps = $button.closest('.steps');
+		// 		var $next = $step.next('.step');
+		// 		if (!$next.length) return;
+		// 		$step.addClass('slide-out');
+		// 		setTimeout(function(){
+		// 			$step.removeClass('active');
+		// 			$next.addClass('active');
+		// 		}, 250);
+		// 	}
+		// },
 
-		moveHeroNav: function() {
-			var self = this;
+		// moveHeroNav: function() {
+		// 	var self = this;
 
-			var selector = '.hero-nav';
+		// 	var selector = '.hero-nav';
 
-			var $nav = $(selector).clone();
+		// 	var $nav = $(selector).clone();
 
-			//start();
+		// 	//start();
 
-			return;
+		// 	return;
 
-			function start() {
-				var $original = $(selector);
-				var $wrapper = $original.closest('.index-section-wrapper');
-				$(selector).remove();
-				$wrapper.prepend($nav);
+		// 	function start() {
+		// 		var $original = $(selector);
+		// 		var $wrapper = $original.closest('.index-section-wrapper');
+		// 		$(selector).remove();
+		// 		$wrapper.prepend($nav);
 
-			}
-		},
+		// 	}
+		// },
 
-		getNewsletterForm: function() {
-			var html =
-				'<div class="newsletter-signup">' +
-					'<div class="wrapper">' +
-						'<div class="title"><h2>Sign Up For Our Newsletter To Get Updates</h2></div>' +
-						'<div class="newsletter-form">' +
-							'<div class="steps">' +
-								'<div class="step active">' +
-									'<div class="fields">' +
-										'<input type="text" placeholder="Enter your name">' +
-									'<input type="submit" value="Next" /></div>' +
-								'</div>' +
-								'<div class="step">' +
-									'<div class="fields">' +
-										'<input type="text" placeholder="Enter your email address">' +
-										'<input type="submit" value="Next" />' +
-									'</div>' +
-								'</div>' +
-							'</div>' +
-						'</div>' +
-					'</div>' +
-				'</div>';
-			return html;
-		},
+		// getNewsletterForm: function() {
+		// 	var html =
+		// 		'<div class="newsletter-signup">' +
+		// 			'<div class="wrapper">' +
+		// 				'<div class="title"><h2>Sign Up For Our Newsletter To Get Updates</h2></div>' +
+		// 				'<div class="newsletter-form">' +
+		// 					'<div class="steps">' +
+		// 						'<div class="step active">' +
+		// 							'<div class="fields">' +
+		// 								'<input type="text" placeholder="Enter your name">' +
+		// 							'<input type="submit" value="Next" /></div>' +
+		// 						'</div>' +
+		// 						'<div class="step">' +
+		// 							'<div class="fields">' +
+		// 								'<input type="text" placeholder="Enter your email address">' +
+		// 								'<input type="submit" value="Next" />' +
+		// 							'</div>' +
+		// 						'</div>' +
+		// 					'</div>' +
+		// 				'</div>' +
+		// 			'</div>' +
+		// 		'</div>';
+		// 	return html;
+		// },
 
-		shopDonateButtons: function() {
-			var self = this;
+		// shopDonateButtons: function() {
+		// 	var self = this;
 
-			// Insert buttons into the following element
-			var insertInto = '#header .header-inner';
-			var insertIntoScrollNav = '#mainNavWrapper #mainNavigation';
+		// 	// Insert buttons into the following element
+		// 	var insertInto = '#header .header-inner';
+		// 	var insertIntoScrollNav = '#mainNavWrapper #mainNavigation';
 
-			var $buttons = $('<div class="shop-donate-buttons"><a href="/store">Shop</a><a href="#">Give</a></div>');
-			var $scrollButton = $('<div class="external"><a href="#">Give</a></div>');
+		// 	var $buttons = $('<div class="shop-donate-buttons"><a href="/store">Shop</a><a href="#">Give</a></div>');
+		// 	var $scrollButton = $('<div class="external"><a href="#">Give</a></div>');
 
-			//start();
+		// 	//start();
 
-			return;
+		// 	return;
 
-			function start() {
-				$(insertInto).append($buttons);
-				// $(insertIntoScrollNav).append($scrollButton);
-			}
+		// 	function start() {
+		// 		$(insertInto).append($buttons);
+		// 		// $(insertIntoScrollNav).append($scrollButton);
+		// 	}
 
-		},
+		// },
 
-		seenOn: function(returnHtml) {
-			var self = this;
+		// seenOn: function(returnHtml) {
+		// 	var self = this;
 
-			// Specify where to insert
-			var insertInto = '.as-seen-on';
+		// 	// Specify where to insert
+		// 	var insertInto = '.as-seen-on';
 
-			var logos = [
-				'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d46be6594a0e1d80ce1/1474309446063/logo-media-fox-news.png',
-				'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d0abe6594a0e1d809a9/1474309387030/logo-media-abc.png',
-				'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d4abe6594a0e1d80d18/1474309450561/logo-media-nbc.png',
-				'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d75be6594a0e1d80f25/1474309493718/logo-media-usa-today.png',
-				'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d2bbe6594a0e1d80b50/1474309419996/logo-media-cnn.png',
-				'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d6bbe6594a0e1d80eb1/1474309483411/logo-media-npr.png',
-				'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d1cbe6594a0e1d80a7d/1474309404007/logo-media-ap.png',
-				'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d58be6594a0e1d80db3/1474309464190/logo-media-bbc.png',
-				'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d41be6594a0e1d80c90/1474309441184/logo-media-ewtn.png',
-				'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d72be6594a0e1d80f24/1474309490814/logo-media-reuters.png',
-				'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d26be6594a0e1d80b0d/1474309414815/logo-media-cbn.png',
-				'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d6fbe6594a0e1d80ef8/1474309487716/logo-media-politico.png',
-				'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d3dbe6594a0e1d80c21/1474309437255/logo-media-drudgereport.png'
-			];
+		// 	var logos = [
+		// 		'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d46be6594a0e1d80ce1/1474309446063/logo-media-fox-news.png',
+		// 		'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d0abe6594a0e1d809a9/1474309387030/logo-media-abc.png',
+		// 		'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d4abe6594a0e1d80d18/1474309450561/logo-media-nbc.png',
+		// 		'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d75be6594a0e1d80f25/1474309493718/logo-media-usa-today.png',
+		// 		'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d2bbe6594a0e1d80b50/1474309419996/logo-media-cnn.png',
+		// 		'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d6bbe6594a0e1d80eb1/1474309483411/logo-media-npr.png',
+		// 		'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d1cbe6594a0e1d80a7d/1474309404007/logo-media-ap.png',
+		// 		'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d58be6594a0e1d80db3/1474309464190/logo-media-bbc.png',
+		// 		'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d41be6594a0e1d80c90/1474309441184/logo-media-ewtn.png',
+		// 		'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d72be6594a0e1d80f24/1474309490814/logo-media-reuters.png',
+		// 		'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d26be6594a0e1d80b0d/1474309414815/logo-media-cbn.png',
+		// 		'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d6fbe6594a0e1d80ef8/1474309487716/logo-media-politico.png',
+		// 		'http://static1.squarespace.com/static/57b4e44603596eec70fcb3be/t/57e02d3dbe6594a0e1d80c21/1474309437255/logo-media-drudgereport.png'
+		// 	];
 
-			var sizes = [30,30,30,30,18,18,26,18,26,16,16,16,16];
+		// 	var sizes = [30,30,30,30,18,18,26,18,26,16,16,16,16];
 
-			var width = 100 / logos.length;
+		// 	var width = 100 / logos.length;
 
-			var html = '<div class="images">' + logos.map(makeImage).join('') + '</div>';
+		// 	var html = '<div class="images">' + logos.map(makeImage).join('') + '</div>';
 
-			var $content = $(html);
+		// 	var $content = $(html);
 
-			// Return the content if all I want is the HTML
-			if (returnHtml) return html;
+		// 	// Return the content if all I want is the HTML
+		// 	if (returnHtml) return html;
 
-			//start();
+		// 	//start();
 
-			return;
+		// 	return;
 
-			function start() {
-				$(insertInto).html($content);
-			}
+		// 	function start() {
+		// 		$(insertInto).html($content);
+		// 	}
 
-			function makeImage(url, i) {
-				// return '<li style="width: ' + width + '% ;"><img src="'+ url +'"></li>';
-				return '<img style="height: '+ sizes[i] +'px;" src="'+ url +'">';
-			}
+		// 	function makeImage(url, i) {
+		// 		// return '<li style="width: ' + width + '% ;"><img src="'+ url +'"></li>';
+		// 		return '<img style="height: '+ sizes[i] +'px;" src="'+ url +'">';
+		// 	}
 
-		},
+		// },
 
-		addResources: function() {
-			var self = this;
+		// addResources: function() {
+		// 	var self = this;
 
-			this.make100Width('#HomeResources', 'home-resources-wrapper');
-			return;
+		// 	this.make100Width('#HomeResources', 'home-resources-wrapper');
+		// 	return;
 
-			// Selector for object to insert after
-			var insertAfter = '#featured-blog-posts-section';
+		// 	// Selector for object to insert after
+		// 	var insertAfter = '#featured-blog-posts-section';
 
-			var stealFrom = '#HomeResources';
+		// 	var stealFrom = '#HomeResources';
 
-			// New content
-			/*
-			var $div =
-				$('<div class="home-resources">' +
-					'<div class="resource purple small bg-map">' +
-						'<div class="title half transparent">' +
-							'<h2>Find Your Regional Coordinator</h2>' +
-							'<a class="learn-more" href="#">Learn More +</a>' +
-						'</div>' +
-					'</div>' +
-					'<div class="resource white small bg-free-resources">' +
-						'<div class="title half">' +
-							'<h2>Free Resources</h2>' +
-							'<a class="learn-more" href="#">Learn More +</a>' +
-						'</div>' +
-					'</div>' +
-					'<div class="resource large bg-rock-for-life"></div>' +
-					'<div class="resource large purple">' +
-						'<div class="title">' +
-							'<h2>Rock For Life</h2>' +
-							'<h3>Music &middot; Education &middot; Action</h3>' +
-							'<div class="description">Rock for life is promoting human rights for all people, born and preborn, by engaging the culture through music, education and action. We believe that each and every human being is a person from his or her biological beginning.</div>' +
-							'<a class="learn-more" href="#">Learn More</a>' +
-						'</div>' +
-					'</div>' +
-					'<div class="resource large grey">' +
-						'<div class="title">' +
-							'<h2>Pregnant on Campus</h2>' +
-							'<div class="description">Find the pregnancy and parenting resources you need on your campus</div>' +
-							'<a class="learn-more" href="#">Learn More</a>' +
-						'</div>' +
-					'</div>' +
-					'<div class="resource large bg-pregnant-on-campus"></div>' +
-				'</div>');
-				*/
+		// 	// New content
+			
+		// 	var $div =
+		// 		$('<div class="home-resources">' +
+		// 			'<div class="resource purple small bg-map">' +
+		// 				'<div class="title half transparent">' +
+		// 					'<h2>Find Your Regional Coordinator</h2>' +
+		// 					'<a class="learn-more" href="#">Learn More +</a>' +
+		// 				'</div>' +
+		// 			'</div>' +
+		// 			'<div class="resource white small bg-free-resources">' +
+		// 				'<div class="title half">' +
+		// 					'<h2>Free Resources</h2>' +
+		// 					'<a class="learn-more" href="#">Learn More +</a>' +
+		// 				'</div>' +
+		// 			'</div>' +
+		// 			'<div class="resource large bg-rock-for-life"></div>' +
+		// 			'<div class="resource large purple">' +
+		// 				'<div class="title">' +
+		// 					'<h2>Rock For Life</h2>' +
+		// 					'<h3>Music &middot; Education &middot; Action</h3>' +
+		// 					'<div class="description">Rock for life is promoting human rights for all people, born and preborn, by engaging the culture through music, education and action. We believe that each and every human being is a person from his or her biological beginning.</div>' +
+		// 					'<a class="learn-more" href="#">Learn More</a>' +
+		// 				'</div>' +
+		// 			'</div>' +
+		// 			'<div class="resource large grey">' +
+		// 				'<div class="title">' +
+		// 					'<h2>Pregnant on Campus</h2>' +
+		// 					'<div class="description">Find the pregnancy and parenting resources you need on your campus</div>' +
+		// 					'<a class="learn-more" href="#">Learn More</a>' +
+		// 				'</div>' +
+		// 			'</div>' +
+		// 			'<div class="resource large bg-pregnant-on-campus"></div>' +
+		// 		'</div>');
+				
 
-			//start();
+		// 	//start();
 
-			return;
+		// 	return;
 
-			function start() {
-				// $(insertAfter).after($div);
-				// var $copy = $(stealFrom).clone();
-				// $(stealFrom).remove();
-				// $(insertAfter).after($copy);
-			}
+		// 	function start() {
+		// 		// $(insertAfter).after($div);
+		// 		// var $copy = $(stealFrom).clone();
+		// 		// $(stealFrom).remove();
+		// 		// $(insertAfter).after($copy);
+		// 	}
 
 
-		},
+		// },
 
-		announcementBar: function() {
-			var self = this;
+		// announcementBar: function() {
+		// 	var self = this;
 
-			// RSS feed
-			var rss = 'http://studentsforlifeofamerica.squarespace.com/blog-main?format=json';
+		// 	// RSS feed
+		// 	// var rss = 'http://studentsforlifeofamerica.squarespace.com/blog-main?format=json';
 
-			var social = [
-				'twitter',
-				'facebook',
-				'pinterest',
-				// 'gplus',
-				'youtube',
-				'tumblr',
-				// 'skype'
-			];
+		// 	// var social = [
+		// 	// 	'twitter',
+		// 	// 	'facebook',
+		// 	// 	'pinterest',
+		// 	// 	// 'gplus',
+		// 	// 	'youtube',
+		// 	// 	'tumblr',
+		// 	// 	// 'skype'
+		// 	// ];
 
-			var social_links = social.map(socialLink).join('');
+		// 	// var social_links = social.map(socialLink).join('');
 
-			// Announcement bar
-			var $bar = $(
-				'<div class="feed-bar">' +
-					'<div class="content-wrapper">' +
-						'<div class="latest"><div class="title"></div><a href="#">Read article &rarr;</a></div>' +
-						'<div class="social-links">' + social_links + '</div>' +
-					'</div>' +
-				'</div>'
-			);
+		// 	// Announcement bar
+		// 	// var $bar = $(
+		// 	// 	'<div class="feed-bar">' +
+		// 	// 		'<div class="content-wrapper">' +
+		// 	// 			'<div class="latest"><div class="title"></div><a href="#">Read article &rarr;</a></div>' +
+		// 	// 			'<div class="social-links">' + social_links + '</div>' +
+		// 	// 		'</div>' +
+		// 	// 	'</div>'
+		// 	// );
 
-			var $title = '';
-			var $link = '';
+		// 	var $title = '';
+		// 	var $link = '';
 
-			//start();
+		// 	//start();
 
-			return;
+		// 	return;
 
-			function start() {
-				$('#site').before($bar);
-				$('#preFooter .social-links').html(social_links);
-				$title = $('.latest .title', $bar);
-				$link = $('.latest a', $bar);
-				self.parseRSS(rss, loadRSS);
-			}
+		// 	// function start() {
+		// 	// 	$('#site').before($bar);
+		// 	// 	$('#preFooter .social-links').html(social_links);
+		// 	// 	$title = $('.latest .title', $bar);
+		// 	// 	$link = $('.latest a', $bar);
+		// 	// 	self.parseRSS(rss, loadRSS);
+		// 	// }
 
-			function loadRSS(data) {
-				if (!data.items) return;
-				var post = data.items[0];
-				// post.title
-				// post.fullUrl
-				$title.html('<b>' + post.title + ':</b> ' + stripHTML(post.body));
-				$link.attr('href', post.fullUrl);
-			}
+		// 	// function loadRSS(data) {
+		// 	// 	if (!data.items) return;
+		// 	// 	var post = data.items[0];
+		// 	// 	// post.title
+		// 	// 	// post.fullUrl
+		// 	// 	$title.html('<b>' + post.title + ':</b> ' + stripHTML(post.body));
+		// 	// 	$link.attr('href', post.fullUrl);
+		// 	// }
 
-			function socialLink(name) {
-				return '<a class="social-link icon-'+ name +'"></a>';
-			}
+		// 	// function socialLink(name) {
+		// 	// 	return '<a class="social-link icon-'+ name +'"></a>';
+		// 	// }
 
-		},
+		// },
 
-		parseRSS: function(url, callback) {
-			$.ajax({
-				url: url,
-				type: 'GET',
-				dataType: 'jsonp',
-				success: function(data) {
-					callback(data);
-				}
-			});
-		}
+		// parseRSS: function(url, callback) {
+		// 	$.ajax({
+		// 		url: url,
+		// 		type: 'GET',
+		// 		dataType: 'jsonp',
+		// 		success: function(data) {
+		// 			callback(data);
+		// 		}
+		// 	});
+		// }
 
 	};
 
