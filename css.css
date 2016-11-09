@@ -44,3 +44,10 @@ input {
 user agent stylesheet div {
     display: block;
 }
+
+div,
+a,
+span,
+input {
+    font-family: proxima-nova;
+}
