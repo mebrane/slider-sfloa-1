@@ -44,3 +44,7 @@ input {
 user agent stylesheet div {
     display: block;
 }
+
+ .gallery-arrows a.next:before {
+    content: "\e02d" !important;
+}
