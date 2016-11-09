@@ -1,4 +1,98 @@
-#siteWrapper {
+@font-face {
+    font-family: 'squarespace-ui-font';
+    src: url('../fonts/squarespace-ui-font.eot');
+    src: url('../fonts/squarespace-ui-font.eot?#iefix') format('embedded-opentype'), url('../fonts/squarespace-ui-font.svg#squarespace-ui-font') format('svg'), url('../fonts/squarespace-ui-font.woff') format('woff'), url('../fonts/squarespace-ui-font.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal
+}
+
+
+@font-face {
+    font-family: 'squarespace-ui-font';
+    src: url('../fonts/squarespace-ui-font.eot');
+    src: url('../fonts/squarespace-ui-font.eot?#iefix') format('embedded-opentype'), url('../fonts/squarespace-ui-font.svg#squarespace-ui-font') format('svg'), url('../fonts/squarespace-ui-font.woff') format('woff'), url('../fonts/squarespace-ui-font.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal
+}
+
+
+
+
+
+.collection-type-gallery:not(.gallery-design-grid) .arrow.previous-slide:before {
+    font-family: 'squarespace-ui-font';
+    font-style: normal;
+    speak: none;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    content: "\e000";
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle
+}
+
+.collection-type-gallery:not(.gallery-design-grid) .arrow.previous-slide:before {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px
+}
+
+.collection-type-gallery:not(.gallery-design-grid) .arrow.previous-slide:before {
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px
+}
+
+.collection-type-gallery:not(.gallery-design-grid) .arrow.next-slide:before {
+    font-family: 'squarespace-ui-font';
+    font-style: normal;
+    speak: none;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    content: "\e003";
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle
+}
+
+.collection-type-gallery:not(.gallery-design-grid) .arrow.next-slide:before {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px
+}
+
+.collection-type-gallery:not(.gallery-design-grid) .arrow.next-slide:before {
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #siteWrapper {
     background-color: #fff;
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: subpixel-antialiased;
@@ -47,4 +141,4 @@ user agent stylesheet div {
 
  .gallery-arrows a.next:before {
     content: "\e02d" !important;
-}
+} */
